@@ -1,0 +1,18 @@
+{
+  "name": "hex-grid",
+  "version": "1.0.0",
+  "description": "Game based on a futuristic transport sytem with hexagonal stations",
+  "main": "index.html",
+  "author": "Benjamin Davies <bentendavies@gmail.com>",
+  "license": "GPL-3.0-or-later",
+  "private": true,
+  "dependencies": {
+    "parcel-bundler": "^1.9.4",
+    "parcel-plugin-typescript": "^1.0.0",
+    "typescript": "^2.9.2"
+  },
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  }
+}
