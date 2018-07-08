@@ -1,0 +1,24 @@
+body {
+  background: #333;
+  font-family: 'Courier New', Courier, monospace;
+  min-height: 100%;
+}
+
+main {
+  background: white;
+  box-sizing: border-box;
+  display: table;
+  padding: 0 1em;
+  margin: 0 auto;
+  max-width: 1024px;
+  width: 80%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+}
+
+canvas {
+  width: 100%;
+}
