@@ -56,7 +56,6 @@ class Game {
       this.width = canvas.width = canvas.clientWidth;
       this.height = canvas.height = canvas.clientHeight;
       this.scale = Math.min(this.width, this.height) / 10;
-      console.log(this);
     }
   }
 
