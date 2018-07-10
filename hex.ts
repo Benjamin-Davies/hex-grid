@@ -1,4 +1,4 @@
-import { mat2, vec2 } from 'gl-matrix';
+import { mat2, vec2, glMatrix } from 'gl-matrix';
 
 /**
  * The hexToCart matrix
@@ -30,4 +30,23 @@ export function hexToCart(out: vec2, a: vec2) {
  */
 export function cartToHex(out: vec2, a: vec2) {
   return vec2.transformMat2(out, a, cartToHexMat);
+}
+
+/**
+ * The ratio between the outer and inner radii of a hexagon
+ */
+export const radiusRatio = Math.sin(Math.PI / 3);
+
+/**
+ * The vertices for a hexagon
+ */
+export const hexVerts: vec2[] = [];
+for (let i = 0; i < 6; i++) {
+  const theta = (i * Math.PI) / 3;
+  hexVerts.push(
+    vec2.fromValues(
+      Math.sin(theta) / radiusRatio / 2,
+      Math.cos(theta) / radiusRatio / 2
+    )
+  );
 }

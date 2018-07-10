@@ -1,5 +1,5 @@
 import { vec2 } from 'gl-matrix';
-import { hexToCart, cartToHex } from './hex';
+import { hexToCart, cartToHex, hexVerts } from './hex';
 
 class Game {
   ctx: CanvasRenderingContext2D;
@@ -37,32 +37,26 @@ class Game {
 
     this.checkResize();
 
-    ctx.fillStyle = 'white';
-    ctx.fillRect(0, 0, this.width, this.height);
+    ctx.clearRect(0, 0, this.width, this.height);
 
-    ctx.fillStyle = 'blue';
     for (let y = 0; y < 30; y++) {
       for (let x = -10; x < 20; x++) {
         const v = vec2.fromValues(x, y);
-        ctx.save();
-        this.translateHex(v);
-        if (vec2.equals(v, this.mouseHex)) {
-          ctx.fillStyle = 'limegreen';
-        }
-        ctx.beginPath();
-        ctx.arc(0, 0, this.scale / 2, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
+        this.drawCell(v, vec2.equals(v, this.mouseHex) ? 'limegreen' : 'blue');
       }
     }
   }
 
   checkResize() {
     const canvas = this.ctx.canvas;
-    if (this.width !== canvas.clientWidth) {
+    if (
+      this.width !== canvas.clientWidth ||
+      this.height !== canvas.clientHeight
+    ) {
       this.width = canvas.width = canvas.clientWidth;
-      this.height = canvas.height = this.width * 0.5;
-      this.scale = this.width / 20;
+      this.height = canvas.height = canvas.clientHeight;
+      this.scale = Math.min(this.width, this.height) / 10;
+      console.log(this);
     }
   }
 
@@ -72,6 +66,29 @@ class Game {
     hexToCart(temp, temp);
 
     this.ctx.translate(temp[0], temp[1]);
+  }
+
+  drawCell(v: vec2, type: string | number) {
+    const ctx = this.ctx;
+    ctx.save();
+    this.translateHex(v);
+
+    if (typeof type === 'string') {
+      ctx.fillStyle = type;
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = this.scale / 10;
+      ctx.beginPath();
+
+      for (const vert of hexVerts) {
+        ctx.lineTo(vert[0] * this.scale, vert[1] * this.scale);
+      }
+
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+    }
+
+    ctx.restore();
   }
 }
 
