@@ -21,7 +21,7 @@ mat2.invert(cartToHexMat, hexToCartMat);
  * @param a The vec2 to transform
  */
 export function hexToCart(out: vec2, a: vec2) {
-  vec2.transformMat2(out, a, hexToCartMat);
+  return vec2.transformMat2(out, a, hexToCartMat);
 }
 /**
  * Transform a vector from cartesian coordinates to hexagonal coordinated
@@ -29,5 +29,5 @@ export function hexToCart(out: vec2, a: vec2) {
  * @param a The vec2 to transform
  */
 export function cartToHex(out: vec2, a: vec2) {
-  vec2.transformMat2(out, a, cartToHexMat);
+  return vec2.transformMat2(out, a, cartToHexMat);
 }
