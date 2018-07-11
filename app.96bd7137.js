@@ -29,4 +29,4 @@ parcelRequire=function(e,r,n,t){var i="function"==typeof parcelRequire&&parcelRe
 },{"gl-matrix":16,"./hex":12,"./colors":13}],6:[function(require,module,exports) {
 "use strict";exports.__esModule=!0;var e=require("./game"),t=document.getElementById("main-canvas"),r=t.getContext("2d");if(!r)throw new Error("Could not create drawing context");var a=new e.default(r);a.start();
 },{"./game":10}]},{},[6], null)
-//# sourceMappingURL=dist/app.96bd7137.map
+//# sourceMappingURL=hex-grid/app.96bd7137.map
