@@ -1,5 +1,6 @@
 import { vec2 } from 'gl-matrix';
 import { hexToCart, cartToHex, hexVerts } from './hex';
+import * as colors from './colors';
 
 class Game {
   ctx: CanvasRenderingContext2D;
@@ -39,12 +40,20 @@ class Game {
 
     ctx.clearRect(0, 0, this.width, this.height);
 
-    for (let y = 0; y < 30; y++) {
-      for (let x = -10; x < 20; x++) {
+    ctx.save();
+    ctx.translate(this.width / 2, this.height / 2);
+
+    for (let y = -15; y < 15; y++) {
+      for (let x = -10; x < 10; x++) {
         const v = vec2.fromValues(x, y);
-        this.drawCell(v, vec2.equals(v, this.mouseHex) ? 'limegreen' : 'blue');
+        this.drawCell(
+          v,
+          vec2.equals(v, this.mouseHex) ? colors.vertex : colors.background
+        );
       }
     }
+
+    ctx.restore();
   }
 
   checkResize() {
@@ -74,7 +83,7 @@ class Game {
 
     if (typeof type === 'string') {
       ctx.fillStyle = type;
-      ctx.strokeStyle = 'white';
+      ctx.strokeStyle = colors.outline;
       ctx.lineWidth = this.scale / 10;
       ctx.beginPath();
 
