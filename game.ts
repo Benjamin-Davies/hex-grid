@@ -20,10 +20,9 @@ class Game {
     const canvas = this.ctx.canvas;
     canvas.addEventListener('mousemove', ev => {
       const v = vec2.fromValues(
-        ev.clientX - canvas.offsetLeft,
-        ev.clientY - canvas.offsetTop
+        (ev.clientX - canvas.offsetLeft - this.width / 2) / this.scale,
+        (ev.clientY - canvas.offsetTop - this.height / 2) / this.scale
       );
-      vec2.scale(v, v, 1 / this.scale);
       cartToHex(v, v);
       vec2.round(v, v);
       this.mouseHex = v;
@@ -44,7 +43,7 @@ class Game {
     ctx.translate(this.width / 2, this.height / 2);
 
     for (let y = -15; y < 15; y++) {
-      for (let x = -10; x < 10; x++) {
+      for (let x = -15; x < 15; x++) {
         const v = vec2.fromValues(x, y);
         this.drawCell(
           v,
