@@ -103,7 +103,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({16:[function(require,module,exports) {
+})({22:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -154,7 +154,7 @@ function toRadian(a) {
 function equals(a, b) {
   return Math.abs(a - b) <= EPSILON * Math.max(1.0, Math.abs(a), Math.abs(b));
 }
-},{}],17:[function(require,module,exports) {
+},{}],23:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -622,7 +622,7 @@ const mul = exports.mul = multiply;
  * @function
  */
 const sub = exports.sub = subtract;
-},{"./common.js":16}],18:[function(require,module,exports) {
+},{"./common.js":22}],24:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1139,7 +1139,7 @@ const mul = exports.mul = multiply;
  * @function
  */
 const sub = exports.sub = subtract;
-},{"./common.js":16}],20:[function(require,module,exports) {
+},{"./common.js":22}],25:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1989,7 +1989,7 @@ const mul = exports.mul = multiply;
  * @function
  */
 const sub = exports.sub = subtract;
-},{"./common.js":16}],19:[function(require,module,exports) {
+},{"./common.js":22}],26:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3841,7 +3841,7 @@ const mul = exports.mul = multiply;
  * @function
  */
 const sub = exports.sub = subtract;
-},{"./common.js":16}],24:[function(require,module,exports) {
+},{"./common.js":22}],30:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4676,7 +4676,7 @@ const forEach = exports.forEach = function () {
     return a;
   };
 }();
-},{"./common.js":16}],25:[function(require,module,exports) {
+},{"./common.js":22}],31:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -5330,7 +5330,7 @@ const forEach = exports.forEach = function () {
     return a;
   };
 }();
-},{"./common.js":16}],21:[function(require,module,exports) {
+},{"./common.js":22}],27:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5998,7 +5998,7 @@ const setAxes = exports.setAxes = function () {
     return normalize(out, fromMat3(out, matr));
   };
 }();
-},{"./common.js":16,"./mat3.js":20,"./vec3.js":24,"./vec4.js":25}],23:[function(require,module,exports) {
+},{"./common.js":22,"./mat3.js":25,"./vec3.js":30,"./vec4.js":31}],28:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6875,7 +6875,7 @@ function equals(a, b) {
       b7 = b[7];
   return Math.abs(a0 - b0) <= glMatrix.EPSILON * Math.max(1.0, Math.abs(a0), Math.abs(b0)) && Math.abs(a1 - b1) <= glMatrix.EPSILON * Math.max(1.0, Math.abs(a1), Math.abs(b1)) && Math.abs(a2 - b2) <= glMatrix.EPSILON * Math.max(1.0, Math.abs(a2), Math.abs(b2)) && Math.abs(a3 - b3) <= glMatrix.EPSILON * Math.max(1.0, Math.abs(a3), Math.abs(b3)) && Math.abs(a4 - b4) <= glMatrix.EPSILON * Math.max(1.0, Math.abs(a4), Math.abs(b4)) && Math.abs(a5 - b5) <= glMatrix.EPSILON * Math.max(1.0, Math.abs(a5), Math.abs(b5)) && Math.abs(a6 - b6) <= glMatrix.EPSILON * Math.max(1.0, Math.abs(a6), Math.abs(b6)) && Math.abs(a7 - b7) <= glMatrix.EPSILON * Math.max(1.0, Math.abs(a7), Math.abs(b7));
 }
-},{"./common.js":16,"./quat.js":21,"./mat4.js":19}],22:[function(require,module,exports) {
+},{"./common.js":22,"./quat.js":27,"./mat4.js":26}],29:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -7545,7 +7545,7 @@ const forEach = exports.forEach = function () {
     return a;
   };
 }();
-},{"./common.js":16}],15:[function(require,module,exports) {
+},{"./common.js":22}],16:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7605,7 +7605,7 @@ exports.quat2 = quat2;
 exports.vec2 = vec2;
 exports.vec3 = vec3;
 exports.vec4 = vec4;
-},{"./gl-matrix/common.js":16,"./gl-matrix/mat2.js":17,"./gl-matrix/mat2d.js":18,"./gl-matrix/mat3.js":20,"./gl-matrix/mat4.js":19,"./gl-matrix/quat.js":21,"./gl-matrix/quat2.js":23,"./gl-matrix/vec2.js":22,"./gl-matrix/vec3.js":24,"./gl-matrix/vec4.js":25}],26:[function(require,module,exports) {
+},{"./gl-matrix/common.js":22,"./gl-matrix/mat2.js":23,"./gl-matrix/mat2d.js":24,"./gl-matrix/mat3.js":25,"./gl-matrix/mat4.js":26,"./gl-matrix/quat.js":27,"./gl-matrix/quat2.js":28,"./gl-matrix/vec2.js":29,"./gl-matrix/vec3.js":30,"./gl-matrix/vec4.js":31}],14:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
@@ -7649,14 +7649,14 @@ for (var i = 0; i < 6; i++) {
   var theta = i * Math.PI / 3;
   exports.hexVerts.push(gl_matrix_1.vec2.fromValues(Math.sin(theta) / exports.radiusRatio / 2, Math.cos(theta) / exports.radiusRatio / 2));
 }
-},{"gl-matrix":15}],24:[function(require,module,exports) {
+},{"gl-matrix":16}],15:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
 exports.background = 'lightblue';
 exports.outline = 'white';
 exports.vertex = 'limegreen';
-},{}],5:[function(require,module,exports) {
+},{}],10:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
@@ -7673,8 +7673,7 @@ var Game = /** @class */function () {
         var _this = this;
         var canvas = this.ctx.canvas;
         canvas.addEventListener('mousemove', function (ev) {
-            var v = gl_matrix_1.vec2.fromValues(ev.clientX - canvas.offsetLeft, ev.clientY - canvas.offsetTop);
-            gl_matrix_1.vec2.scale(v, v, 1 / _this.scale);
+            var v = gl_matrix_1.vec2.fromValues((ev.clientX - canvas.offsetLeft - _this.width / 2) / _this.scale, (ev.clientY - canvas.offsetTop - _this.height / 2) / _this.scale);
             hex_1.cartToHex(v, v);
             gl_matrix_1.vec2.round(v, v);
             _this.mouseHex = v;
@@ -7689,7 +7688,7 @@ var Game = /** @class */function () {
         ctx.save();
         ctx.translate(this.width / 2, this.height / 2);
         for (var y = -15; y < 15; y++) {
-            for (var x = -10; x < 10; x++) {
+            for (var x = -15; x < 15; x++) {
                 var v = gl_matrix_1.vec2.fromValues(x, y);
                 this.drawCell(v, gl_matrix_1.vec2.equals(v, this.mouseHex) ? colors.vertex : colors.background);
             }
@@ -7732,7 +7731,7 @@ var Game = /** @class */function () {
     return Game;
 }();
 exports["default"] = Game;
-},{"gl-matrix":15,"./hex":26,"./colors":24}],9:[function(require,module,exports) {
+},{"gl-matrix":16,"./hex":14,"./colors":15}],6:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
@@ -7744,7 +7743,7 @@ if (!ctx) {
 }
 var game = new game_1["default"](ctx);
 game.start();
-},{"./game":5}],22:[function(require,module,exports) {
+},{"./game":10}],42:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -7773,7 +7772,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '56972' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '57860' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -7914,5 +7913,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[22,9], null)
+},{}]},{},[42,6], null)
 //# sourceMappingURL=/app.ade54146.map
