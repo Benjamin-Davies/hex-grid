@@ -27,6 +27,8 @@ body {
 
   background: radial-gradient(#3333, #000a);
   color: white;
+
+  transition: opacity 0.5s;
 }
 
 .main-menu img {
@@ -34,15 +36,16 @@ body {
 }
 
 .main-menu h1 img {
-  height: 15vmin;
+  height: 15vh;
 }
 
 .main-menu .play-button img {
-  height: 25vmin;
+  height: 25vh;
 }
 
 .main-menu .secondary-buttons img {
-  height: 10vmin;
+  width: 10vh;
+  height: 10vh;
 }
 
 .main-menu button {
@@ -52,6 +55,7 @@ body {
 
 .main-menu button img {
   box-shadow: 0 5px 20px #000a;
+  transition: box-shadow 0.1s;
 }
 
 .main-menu button:hover img,

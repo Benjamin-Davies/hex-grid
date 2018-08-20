@@ -15,10 +15,15 @@ class Game {
 
     this.draw = this.draw.bind(this);
     this.onMouseMove = this.onMouseMove.bind(this);
+    this.onPlayButtonClick = this.onPlayButtonClick.bind(this);
   }
 
   start() {
     document.addEventListener('mousemove', this.onMouseMove);
+
+    document
+      .getElementById('play-button')
+      .addEventListener('click', this.onPlayButtonClick);
 
     this.draw();
   }
@@ -39,7 +44,7 @@ class Game {
         const v = vec2.fromValues(x, y);
         this.drawCell(
           v,
-          vec2.equals(v, this.mouseHex) ? colors.vertex : colors.background
+          vec2.equals(v, this.mouseHex) ? colors.highlighted : colors.empty
         );
       }
     }
@@ -56,6 +61,11 @@ class Game {
     cartToHex(v, v);
     vec2.round(v, v);
     this.mouseHex = v;
+  }
+
+  onPlayButtonClick(ev: MouseEvent) {
+    const mainMenu = document.querySelector<HTMLElement>('.main-menu');
+    mainMenu.style.setProperty('opacity', '0');
   }
 
   checkResize() {
