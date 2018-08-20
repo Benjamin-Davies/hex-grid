@@ -14,19 +14,11 @@ class Game {
     this.ctx = ctx;
 
     this.draw = this.draw.bind(this);
+    this.onMouseMove = this.onMouseMove.bind(this);
   }
 
   start() {
-    const canvas = this.ctx.canvas;
-    canvas.addEventListener('mousemove', ev => {
-      const v = vec2.fromValues(
-        (ev.clientX - canvas.offsetLeft - this.width / 2) / this.scale,
-        (ev.clientY - canvas.offsetTop - this.height / 2) / this.scale
-      );
-      cartToHex(v, v);
-      vec2.round(v, v);
-      this.mouseHex = v;
-    });
+    document.addEventListener('mousemove', this.onMouseMove);
 
     this.draw();
   }
@@ -53,6 +45,17 @@ class Game {
     }
 
     ctx.restore();
+  }
+
+  onMouseMove(ev: MouseEvent) {
+    const canvas = this.ctx.canvas;
+    const v = vec2.fromValues(
+      (ev.clientX - canvas.offsetLeft - this.width / 2) / this.scale,
+      (ev.clientY - canvas.offsetTop - this.height / 2) / this.scale
+    );
+    cartToHex(v, v);
+    vec2.round(v, v);
+    this.mouseHex = v;
   }
 
   checkResize() {
