@@ -5,7 +5,56 @@ body {
   margin: 0;
 }
 
-canvas {
+#main-canvas {
   width: 100vw;
   height: 100vh;
+}
+
+.main-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-content: center;
+  justify-content: space-around;
+  padding: 2rem;
+
+  background: radial-gradient(#3333, #000a);
+  color: white;
+}
+
+.main-menu img {
+  border-radius: 1rem;
+}
+
+.main-menu h1 img {
+  height: 15vmin;
+}
+
+.main-menu .play-button img {
+  height: 25vmin;
+}
+
+.main-menu .secondary-buttons img {
+  height: 10vmin;
+}
+
+.main-menu button {
+  background: none;
+  border: none;
+}
+
+.main-menu button img {
+  box-shadow: 0 5px 20px #000a;
+}
+
+.main-menu button:hover img,
+.main-menu button:focus img {
+  box-shadow: 0 10px 20px #000a;
 }
