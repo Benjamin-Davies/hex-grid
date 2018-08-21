@@ -42,21 +42,23 @@ class Game {
     ctx.fillStyle = colors.background;
     ctx.fillRect(0, 0, this.width, this.height);
 
-    ctx.save();
-    ctx.translate(this.width / 2, this.height / 2);
+    if (typeof this.level !== 'undefined') {
+      ctx.save();
+      ctx.translate(this.width / 2, this.height / 2);
 
-    for (let y = -15; y < 15; y++) {
-      for (let x = -15; x < 15; x++) {
-        const v = vec2.fromValues(x, y);
-        this.drawCell(
-          v,
-          CellType.Empty, //this.level.getCell(x, y),
-          vec2.equals(v, this.mouseHex)
-        );
+      for (let y = -15; y < 15; y++) {
+        for (let x = -15; x < 15; x++) {
+          const v = vec2.fromValues(x, y);
+          this.drawCell(
+            v,
+            this.level.getCell(x, y),
+            vec2.equals(v, this.mouseHex)
+          );
+        }
       }
-    }
 
-    ctx.restore();
+      ctx.restore();
+    }
   }
 
   onMouseMove(ev: MouseEvent) {
@@ -107,6 +109,12 @@ class Game {
     switch (type) {
       case CellType.Empty:
         ctx.fillStyle = colors.empty;
+        break;
+      case CellType.Vertex:
+        ctx.fillStyle = colors.vertex;
+        break;
+      case CellType.Edge:
+        ctx.fillStyle = colors.edge;
         break;
     }
 

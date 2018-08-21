@@ -1,4 +1,5 @@
-export const empty = 'lightblue';
-export const highlighted = 'lime';
 export const background = 'white';
-export const vertex = 'limegreen';
+export const highlighted = 'lime';
+export const empty = 'lightblue';
+export const vertex = 'magenta';
+export const edge = 'blue';
