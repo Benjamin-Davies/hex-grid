@@ -1,7 +1,7 @@
 import { vec2 } from 'gl-matrix';
 import { hexToCart, cartToHex, hexVerts } from './hex';
 import * as colors from './colors';
-import { Level } from './level';
+import { Level, CellType } from './level';
 
 class Game {
   ctx: CanvasRenderingContext2D;
@@ -39,7 +39,8 @@ class Game {
 
     this.checkResize();
 
-    ctx.clearRect(0, 0, this.width, this.height);
+    ctx.fillStyle = colors.background;
+    ctx.fillRect(0, 0, this.width, this.height);
 
     ctx.save();
     ctx.translate(this.width / 2, this.height / 2);
@@ -49,7 +50,8 @@ class Game {
         const v = vec2.fromValues(x, y);
         this.drawCell(
           v,
-          vec2.equals(v, this.mouseHex) ? colors.highlighted : colors.empty
+          CellType.Empty, //this.level.getCell(x, y),
+          vec2.equals(v, this.mouseHex)
         );
       }
     }
@@ -97,23 +99,35 @@ class Game {
     this.ctx.translate(temp[0], temp[1]);
   }
 
-  drawCell(v: vec2, type: string | number) {
+  drawCell(v: vec2, type: CellType, highlighted: boolean) {
     const ctx = this.ctx;
     ctx.save();
     this.translateHex(v);
 
-    if (typeof type === 'string') {
-      ctx.fillStyle = type;
-      ctx.strokeStyle = colors.outline;
-      ctx.lineWidth = this.scale / 10;
-      ctx.beginPath();
+    switch (type) {
+      case CellType.Empty:
+        ctx.fillStyle = colors.empty;
+        break;
+    }
 
+    ctx.beginPath();
+    for (const vert of hexVerts) {
+      ctx.lineTo(vert[0] * this.scale * 0.9, vert[1] * this.scale * 0.9);
+    }
+    ctx.closePath();
+    ctx.fill();
+
+    if (highlighted) {
+      ctx.strokeStyle = colors.highlighted;
+      ctx.lineWidth = this.scale / 10;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
+      ctx.beginPath();
       for (const vert of hexVerts) {
         ctx.lineTo(vert[0] * this.scale, vert[1] * this.scale);
       }
-
       ctx.closePath();
-      ctx.fill();
       ctx.stroke();
     }
 
