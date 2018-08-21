@@ -1,7 +1,7 @@
 import { vec2 } from 'gl-matrix';
 import { hexToCart, cartToHex, hexVerts } from './hex';
 import * as colors from './colors';
-import Level from './level';
+import { Level } from './level';
 
 class Game {
   ctx: CanvasRenderingContext2D;
