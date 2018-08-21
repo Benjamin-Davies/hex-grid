@@ -1,12 +1,15 @@
 import { vec2 } from 'gl-matrix';
 import { hexToCart, cartToHex, hexVerts } from './hex';
 import * as colors from './colors';
+import Level from './level';
 
 class Game {
   ctx: CanvasRenderingContext2D;
   width: number;
   height: number;
   scale: number;
+
+  level: Level;
 
   mouseHex: vec2 = vec2.create();
 
@@ -24,6 +27,8 @@ class Game {
     document
       .getElementById('play-button')
       .addEventListener('click', this.onPlayButtonClick);
+
+    this.loadLevel(0);
 
     this.draw();
   }
@@ -66,6 +71,10 @@ class Game {
   onPlayButtonClick(ev: MouseEvent) {
     const mainMenu = document.querySelector<HTMLElement>('.main-menu');
     mainMenu.style.setProperty('opacity', '0');
+  }
+
+  async loadLevel(index: number) {
+    this.level = await Level.load(index);
   }
 
   checkResize() {
