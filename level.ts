@@ -19,7 +19,6 @@ export class Level {
     this.xOffset = Math.floor(width / 2);
     this.yOffset = Math.floor(height / 2);
     this.data = data;
-    console.log(width, height, data);
   }
 
   getCell(x: number, y: number): CellType {
