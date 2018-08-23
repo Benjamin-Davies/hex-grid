@@ -10,7 +10,8 @@ body {
   height: 100vh;
 }
 
-.main-menu {
+.main-menu,
+.main-gui {
   position: absolute;
   top: 0;
   left: 0;
@@ -18,6 +19,10 @@ body {
   height: 100vh;
   box-sizing: border-box;
 
+  transition: opacity 0.5s;
+}
+
+.main-menu {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -27,8 +32,6 @@ body {
 
   background: radial-gradient(#3333, #000a);
   color: white;
-
-  transition: opacity 0.5s;
 }
 
 .main-menu img {
@@ -61,4 +64,22 @@ body {
 .main-menu button:hover img,
 .main-menu button:focus img {
   box-shadow: 0 10px 20px #000a;
+}
+
+.main-gui {
+  opacity: 0;
+}
+
+.main-gui #pallet {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+
+  padding: 1em;
+  border-radius: 0 1em 1em 0;
+
+  background: #3335;
+  box-shadow: 0 0 0.2em 0.5em #3335;
 }

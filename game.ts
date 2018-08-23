@@ -75,6 +75,8 @@ class Game {
   onPlayButtonClick(ev: MouseEvent) {
     const mainMenu = document.querySelector<HTMLElement>('.main-menu');
     mainMenu.style.setProperty('opacity', '0');
+    const mainGui = document.querySelector<HTMLElement>('.main-gui');
+    mainGui.style.setProperty('opacity', '1');
   }
 
   async loadLevel(index: number) {
